@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CookFromHome</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
     <!-- это короч header его не надо трогать, если хотите новое добавить туда то делайте токо классы разделите мб с суфиксом названий своей страницы -->
@@ -24,7 +25,43 @@
 
      <!-- Вот тут будете писать в основном свою страницу-->
      <main>
+         <!-- hero-секция с заголовком и призывом к действию -->
+         <section class="home-hero">
+             <div class="container home-hero-content">
+                 <h1 class="home-title">Готовьте дома вкусно и легко</h1>
+                 <p class="home-subtitle">Введите ингредиенты, которые есть у вас под рукой, и найдите идеальный рецепт за пару секунд.</p>
 
+                 <!-- форма быстрого ввода ингредиентов (требование для форм + Flexbox/Grid) -->
+                 <form class="home-form">
+                     <label for="ingredients-input" class="home-label">Что у вас в холодильнике?</label>
+                     <div class="home-input-group">
+                         <input type="text" id="ingredients-input" class="home-input" placeholder="Например: курица, рис, помидоры..." required>
+                         <button type="submit" class="home-btn">Найти рецепты</button>
+                     </div>
+                 </form>
+             </div>
+         </section>
+
+         <!-- секция преимуществ -->
+         <section class="home-benefits">
+             <div class="container">
+                 <h2 class="home-section-title">Почему выбирают CookFromHome</h2>
+                 <div class="home-benefits-grid">
+                     <article class="home-benefit-card">
+                         <h3 class="home-card-title">Экономия продуктов</h3>
+                         <p class="home-card-text">Готовьте из того, что уже есть дома, и реже выбрасывайте еду.</p>
+                     </article>
+                     <article class="home-benefit-card">
+                         <h3 class="home-card-title">Быстрый подбор</h3>
+                         <p class="home-card-text">Умный поиск подберет рецепты под ваше время и список ингредиентов.</p>
+                     </article>
+                     <article class="home-benefit-card">
+                         <h3 class="home-card-title">План питания</h3>
+                         <p class="home-card-text">Составляйте меню на неделю вперед и формируйте списки покупок.</p>
+                     </article>
+                 </div>
+             </div>
+         </section>
      </main>
 
      <!-- это будет footer его тоже не надо особо трогать, если хотите новое добавить туда то делайте токо классы разделите мб с суфиксом названий своей страницы-->

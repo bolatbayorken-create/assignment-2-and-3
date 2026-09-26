@@ -1,0 +1,24 @@
+/* 
+   RESPONSIVE STYLES FOR HOME PAGE
+   */
+
+/* планшеты и мобильные устройства (экраны меньше 768px) */
+@media (max-width: 768px) {
+    .home-title {
+        font-size: 2rem;
+    }
+
+    /* сетка преимуществ из 3 колонок в 1 колонку */
+    .home-benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* чтобы на телефонах строка ввода и кнопка поиска были друг под другом */
+    .home-input-group {
+        flex-direction: column;
+    }
+
+    .home-btn {
+        width: 100%;
+    }
+}

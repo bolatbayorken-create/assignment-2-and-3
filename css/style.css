@@ -68,3 +68,111 @@ footer{
     align-items: center;
     justify-content: space-between;
 }
+/* 
+   HOME PAGE STYLES (Retkhan Angsar)
+    */
+
+/* Hero-секция */
+.home-hero {
+    padding: 60px 20px;
+    background-color: transparent;
+    text-align: center;
+}
+
+.home-title {
+    font-size: 2.5rem;
+    color: rgb(61, 59, 59);
+    margin-bottom: 15px;
+}
+
+.home-subtitle {
+    font-size: 1.1rem;
+    color: rgb(90, 87, 87);
+    margin-bottom: 30px;
+}
+
+/* Форма поиска (Flexbox) */
+.home-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+}
+
+.home-label {
+    font-weight: bold;
+    color: rgb(61, 59, 59);
+}
+
+.home-input-group {
+    display: flex; /* flexbox для строки ввода и кнопки */
+    gap: 10px;
+}
+
+.home-input {
+    flex: 1; /* инпут занимает всё доступное пространство */
+    padding: 12px 15px;
+    border: 1px solid rgb(180, 175, 150);
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: white;
+}
+
+.home-btn {
+    padding: 12px 25px;
+    background-color: rgb(46, 211, 54);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    .home-btn:hover {
+        background-color: rgb(35, 170, 42);
+    }
+
+/* секция преимуществ */
+.home-benefits {
+    padding: 50px 20px 80px 20px;
+}
+
+.home-section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: rgb(61, 59, 59);
+}
+
+/* карточки преимуществ (CSS Grid) */
+.home-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки на десктопе */
+    gap: 25px;
+}
+
+.home-benefit-card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgb(220, 210, 180);
+}
+
+.home-card-title {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: rgb(46, 211, 54);
+}
+
+.home-card-text {
+    color: rgb(90, 87, 87);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+}

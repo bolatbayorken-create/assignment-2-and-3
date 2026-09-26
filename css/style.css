@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(241, 234, 206);
+    color: rgb(61, 59, 59);
+}
+
+/* тут короч общие классы мб потом что то добавим чтобы облегчит но пока так а и кста вот юзайте заране готовый контейнер если не нравится то может свой сделать конечно*/
+
+.container{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* header */
+header{
+    background-color: white;
+    border-bottom: 1px solid rgb(46, 46, 46);
+}
+
+.header-content{
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    color: rgb(46, 211, 54);
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* navigation */
+nav{
+    display: flex;
+    gap: 20px;
+}
+nav a{
+    color: rgb(46, 46, 46);
+    text-decoration: none;
+}
+
+/* main <-------------------------------------------------------------- тут пишите свои классы и делите их коментариями по секциями и еще суфикс добавляйте по типу pantry-title plannet-title и тп*/
+main{
+    min-height: 70vh;
+}
+
+/* footer */
+footer{
+    padding: 30px;
+    background-color: rgb(46, 46, 46);
+    color: white;
+}
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

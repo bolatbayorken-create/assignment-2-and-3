@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -108,12 +108,19 @@
         display: flex;
         align-items: center;
         gap: 8px;
+        cursor: pointer;
+        transition: opacity 0.2s;
+      }
+
+      .meal-item-list li.eaten {
+        text-decoration: line-through;
+        opacity: 0.5;
       }
 
       .meal-tag {
         font-weight: 600;
         color: var(--brand-sage-dark);
-        min-width: 80px;
+        min-width: 85px;
       }
 
       .sidebar-card {
@@ -131,6 +138,15 @@
         font-size: 18px;
         border-bottom: 2px solid var(--bg-light);
         padding-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .progress-text {
+        font-size: 12px;
+        font-weight: normal;
+        color: #888;
       }
 
       .form-field {
@@ -253,8 +269,8 @@
     <!-- MAIN CONTENT -->
     <main class="planner-wrapper">
       <header class="planner-header-box">
-        <h2>План питания на неделю 🥗</h2>
-        <p>Настройте свой рацион и управляйте списком покупок</p>
+        <h2>Weekly Meal Plan 🥗</h2>
+        <p>Customize your diet and manage your shopping list with ease</p>
       </header>
 
       <div class="planner-grid-layout">
@@ -263,37 +279,40 @@
 
         <aside>
           <div class="sidebar-card">
-            <h3>⚙️ Настройки плана</h3>
+            <h3>⚙️ Plan Settings</h3>
             <div class="form-field">
-              <label for="daysSelect">Период:</label>
+              <label for="daysSelect">Period:</label>
               <select id="daysSelect">
-                <option value="7" selected>7 дней (Вся неделя)</option>
-                <option value="5">5 дней (Будни)</option>
-                <option value="3">3 дня (Выходные)</option>
+                <option value="7" selected>7 Days (Full Week)</option>
+                <option value="5">5 Days (Weekdays)</option>
+                <option value="3">3 Days (Weekend)</option>
               </select>
             </div>
 
             <div class="form-field">
-              <label for="targetCalories">Цель (ккал/день):</label>
+              <label for="targetCalories">Target (kcal/day):</label>
               <input type="number" id="targetCalories" value="2000" step="50">
             </div>
 
-            <button type="button" class="btn-action" onclick="updatePlan()">Обновить план</button>
+            <button type="button" class="btn-action" onclick="updatePlan()">Update Plan</button>
           </div>
 
           <div class="sidebar-card">
-            <h3>🛒 Список покупок</h3>
+            <h3>
+              🛒 Grocery List
+              <span id="progressTracker" class="progress-text">0/0 completed</span>
+            </h3>
             
             <div class="add-item-box">
-              <input type="text" id="customInput" placeholder="Добавить продукт...">
-              <button type="button" class="btn-add" onclick="addNewProduct()">+ Добавить</button>
+              <input type="text" id="customInput" placeholder="Add an item...">
+              <button type="button" class="btn-add" onclick="addNewProduct()">+ Add</button>
             </div>
 
             <div id="checklistGroup">
               <div class="checklist-row">
                 <div class="checklist-left">
                   <input type="checkbox" id="item1" onchange="toggleItem(this)">
-                  <label for="item1">Творог (400 г)</label>
+                  <label for="item1">Cottage cheese (400g)</label>
                 </div>
                 <button class="btn-delete-item" onclick="deleteItem(this)">×</button>
               </div>
@@ -301,7 +320,7 @@
               <div class="checklist-row">
                 <div class="checklist-left">
                   <input type="checkbox" id="item2" onchange="toggleItem(this)">
-                  <label for="item2">Куриное филе (1 кг)</label>
+                  <label for="item2">Chicken breast (1 kg)</label>
                 </div>
                 <button class="btn-delete-item" onclick="deleteItem(this)">×</button>
               </div>
@@ -309,7 +328,7 @@
               <div class="checklist-row">
                 <div class="checklist-left">
                   <input type="checkbox" id="item3" onchange="toggleItem(this)">
-                  <label for="item3">Свежая зелень и авокадо</label>
+                  <label for="item3">Fresh greens & avocado</label>
                 </div>
                 <button class="btn-delete-item" onclick="deleteItem(this)">×</button>
               </div>
@@ -330,13 +349,13 @@
     <!-- JAVASCRIPT -->
     <script>
       const defaultSchedule = [
-        { day: "Понедельник 🥐", meals: ["Сырники с ягодным джемом 🥞", "Куриная лапша 🍜", "Курица терияки с рисом 🥣"] },
-        { day: "Вторник 🍳", meals: ["Тост с авокадо и яйцом пашот 🥑", "Плов с говядиной 🍲", "Запеченный картофель с зеленью 🥔"] },
-        { day: "Среда 🥣", meals: ["Овсянка с бананом и медом 🍌", "Домашняя самса и чай 🥐", "Паста Болоньезе 🍝"] },
-        { day: "Четверг 🧇", meals: ["Скрамбл с тостами 🍳", "Борщ со сметаной 🍲", "Фаршированные перцы 🫑"] },
-        { day: "Пятница 🍕", meals: ["Блинчики с ягодами 🥞", "Боул с курицей и рисом 🥣", "Запеченный лосось в соусе 🐟"] },
-        { day: "Суббота ☕", meals: ["Яичница с колбасками 🍳", "Чечевичный суп с хлебом 🍞", "Домашняя пицца 🍕"] },
-        { day: "Воскресенье 🍰", meals: ["Творожная запеканка 🥧", "Овощной салат и котлета 🧆", "Гречка с мясным соусом 🥣"] }
+        { day: "Monday 🥐", meals: ["Cottage cheese pancakes with berry jam 🥞", "Chicken noodle soup 🍜", "Teriyaki chicken with rice 🥣"] },
+        { day: "Tuesday 🍳", meals: ["Avocado toast with poached egg 🥑", "Beef pilaf 🍲", "Baked potatoes with herbs 🥔"] },
+        { day: "Wednesday 🥣", meals: ["Oatmeal with banana and honey 🍌", "Homemade pastry & tea 🥐", "Spaghetti Bolognese 🍝"] },
+        { day: "Thursday 🧇", meals: ["Scrambled eggs with toast 🍳", "Borscht with sour cream 🍲", "Stuffed bell peppers 🫑"] },
+        { day: "Friday 🍕", meals: ["Berry pancakes 🥞", "Chicken and rice bowl 🥣", "Baked salmon with sauce 🐟"] },
+        { day: "Saturday ☕", meals: ["Eggs & sausages breakfast 🍳", "Lentil soup with bread 🍞", "Homemade pizza 🍕"] },
+        { day: "Sunday 🍰", meals: ["Cottage cheese casserole 🥧", "Fresh vegetable salad & cutlet 🧆", "Buckwheat with meat gravy 🥣"] }
       ];
 
       function renderDays(daysCount, targetKcal) {
@@ -355,16 +374,20 @@
           card.innerHTML = `
             <div class="day-node-header">
               <span>${item.day}</span>
-              <span class="badge-kcal">${dayKcal} ккал</span>
+              <span class="badge-kcal">${dayKcal} kcal</span>
             </div>
             <ul class="meal-item-list">
-              <li><span class="meal-tag">Завтрак:</span> ${item.meals[0]}</li>
-              <li><span class="meal-tag">Обед:</span> ${item.meals[1]}</li>
-              <li><span class="meal-tag">Ужин:</span> ${item.meals[2]}</li>
+              <li onclick="toggleMeal(this)"><span class="meal-tag">Breakfast:</span> ${item.meals[0]}</li>
+              <li onclick="toggleMeal(this)"><span class="meal-tag">Lunch:</span> ${item.meals[1]}</li>
+              <li onclick="toggleMeal(this)"><span class="meal-tag">Dinner:</span> ${item.meals[2]}</li>
             </ul>
           `;
           container.appendChild(card);
         }
+      }
+
+      function toggleMeal(element) {
+        element.classList.toggle('eaten');
       }
 
       function updatePlan() {
@@ -380,6 +403,7 @@
         } else {
           row.classList.remove('completed');
         }
+        updateProgress();
       }
 
       function addNewProduct() {
@@ -402,16 +426,28 @@
           
           container.appendChild(newRow);
           input.value = "";
+          updateProgress();
         }
       }
 
       function deleteItem(button) {
         const row = button.closest('.checklist-row');
         row.remove();
+        updateProgress();
+      }
+
+      function updateProgress() {
+        const total = document.querySelectorAll('.checklist-row').length;
+        const checked = document.querySelectorAll('.checklist-row input[type="checkbox"]:checked').length;
+        const progressEl = document.getElementById('progressTracker');
+        if (progressEl) {
+          progressEl.textContent = `${checked}/${total} completed`;
+        }
       }
 
       document.addEventListener('DOMContentLoaded', function() {
         renderDays(7, 2000);
+        updateProgress();
       });
     </script>
 </body>

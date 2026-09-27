@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CookFromHome</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pantry.css">
 </head>
 <body>
     <!-- это короч header его не надо трогать, если хотите новое добавить туда то делайте токо классы разделите мб с суфиксом названий своей страницы -->
@@ -23,7 +24,123 @@
      </header>
 
      <!-- Вот тут будете писать в основном свою страницу-->
-     <main>
+     <main class="pantry-page">
+
+        <section class="pantry-head">
+            <div class="container">
+                <p class="pantry-label">Your Kitchen inventory</p>
+                <h1>Your pantry</h1>
+                <p class="pantry-description">keep tracking your food at home and check it in time</p>
+                
+                <div class="pantry-controls">
+                    <button class="pantry-add-button">+ add product</button>
+                    <input class="pantry-search" type="text">
+                </div>
+            </div>
+        </section>
+
+        <section class="container pantry-dashboard">
+
+            <div class="pantry-inventory">
+                <h2>My products</h2>
+                <div class="pantry-category">
+                    <div>
+                        <h3>&#127830 proteins</h3>
+                        <p>6 products</p>
+                    </div>
+                    <p>></p>
+                </div>
+
+                <div class="pantry-category">
+                    <div>
+                        <h3>&#127806 grains</h3>
+                        <p>8 products</p>
+                    </div>
+                    <p>></p>
+                </div>
+
+                <div class="pantry-category">
+                    <div>
+                        <h3>&#129388 vegetables</h3>
+                        <p>7 products</p>
+                    </div>
+                    <p>></p>
+                </div>
+
+                <div class="pantry-category">
+                    <div>
+                        <h3>&#129371 milk products</h3>
+                        <p>5 products</p>
+                    </div>
+                    <p>></p>
+                </div>
+            </div>
+
+            <aside class="pantry-expiring">
+
+                <h2>Need to be used soon</h2>
+    
+                <article class="expire-item">
+                    <div>
+                        <h3>&#127813 tomatoes</h3>
+                        <p>4 products</p>
+                    </div>
+                    <p class="danger">2 day</p>
+                </article>
+    
+                <article class="expire-item">
+                    <div>
+                        <h3>&#129371 milk</h3>
+                        <p>500 ml</p>
+                    </div>
+                    <p class="danger">3 day</p>
+                </article>
+    
+                <article class="expire-item">
+                    <div>
+                        <h3>&#127831 chicken fillet</h3>
+                        <p>500 g</p>
+                    </div>
+                    <p class="danger">1 day</p>
+                </article>
+            </aside>
+
+        </section>
+
+        <section class="container pantry-products">
+
+            <h2>Last products</h2>
+
+            <div class="product-list">
+                <article class="product-row">
+                    <p class="product-icon">&#129370</p>
+                    <div>
+                        <h3>eggs</h3>
+                        <p>6 products</p>
+                    </div>
+                    <p class="product-status good">fresh</p>
+                </article>
+    
+                <article class="product-row">
+                    <p class="product-icon">&#127813</p>
+                    <div>
+                        <h3>tomatoes</h3>
+                        <p>4 products</p>
+                    </div>
+                    <p class="product-status warning">need to be used soon</p>
+                </article>
+    
+                <article class="product-row">
+                    <p class="product-icon">&#127834</p>
+                    <div>
+                        <h3>rice</h3>
+                        <p>1 kg</p>
+                    </div>
+                    <p class="product-status good">in stock</p>
+                </article>
+            </div>
+
+        </section>
 
      </main>
 

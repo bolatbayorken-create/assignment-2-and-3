@@ -1,0 +1,193 @@
+.pantry-page {
+    background-color: rgb(245, 241, 232);
+}
+
+.pantry-head {
+    padding: 70px 0;
+    background-color: rgb(24, 63, 50);
+    color: white;
+}
+
+.pantry-label {
+    margin: 0 0 12px;
+    color: rgb(213, 228, 188);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.pantry-head h1 {
+    margin: 0 0 18px;
+    font-size: 46px;
+}
+
+.pantry-description {
+    margin: 0;
+    font-size: 16px;
+}
+
+.pantry-controls {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.pantry-add-button {
+    padding: 13px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(223, 160, 90);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.pantry-search {
+    width: 300px;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+}
+
+/* DASHBOARD */
+
+.pantry-dashboard {
+    padding-top: 50px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+}
+
+.pantry-inventory,
+.pantry-expiring {
+    padding: 28px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.pantry-inventory h2,
+.pantry-expiring h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: rgb(23, 56, 46);
+}
+
+/* CATEGORIES */
+
+.pantry-category {
+    padding: 17px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(229, 224, 215);
+}
+
+.pantry-category:last-child {
+    border-bottom: none;
+}
+
+.pantry-category h3 {
+    margin: 0;
+    color: rgb(32, 61, 51);
+}
+
+.pantry-category p {
+    margin: 4px 0 0;
+    color: rgb(136, 136, 136);
+    font-size: 14px;
+}
+
+/* EXPIRING */
+
+.expire-item {
+    margin-bottom: 12px;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(248, 244, 237);
+    border-left: 4px solid rgb(223, 160, 90);
+    border-radius: 10px;
+}
+
+.expire-item h3 {
+    margin: 0;
+    color: rgb(37, 61, 52);
+}
+
+.expire-item p {
+    margin: 4px 0 0;
+    color: rgb(119, 119, 119);
+    font-size: 14px;
+}
+
+.expire-item .danger {
+    color: rgb(199, 71, 71);
+}
+
+
+/* PRODUCTS */
+
+.pantry-products {
+    padding: 45px 0 70px;
+}
+
+.pantry-products h2 {
+    margin-bottom: 20px;
+    color: rgb(23, 56, 46);
+}
+
+.product-list {
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.product-row {
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 45px 1fr auto;
+    align-items: center;
+    border-bottom: 1px solid rgb(232, 228, 220);
+}
+
+.product-row:last-child {
+    border-bottom: none;
+}
+
+.product-row h3 {
+    margin: 0;
+    color: rgb(32, 61, 51);
+}
+
+.product-row p {
+    margin: 3px 0 0;
+    color: rgb(119, 119, 119);
+    font-size: 14px;
+}
+
+.product-icon {
+    font-size: 18px;
+}
+
+/* STATUS */
+
+.product-status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.good {
+    background-color: rgb(220, 235, 216);
+    color: rgb(73, 112, 68);
+}
+
+.warning {
+    background-color: rgb(246, 223, 189);
+    color: rgb(156, 102, 40);
+}

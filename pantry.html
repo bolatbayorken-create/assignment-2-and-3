@@ -1,155 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookFromHome</title>
+    <title>CookFromHome - Pantry</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/pantry.css">
 </head>
-<body>
-    <!-- это короч header его не надо трогать, если хотите новое добавить туда то делайте токо классы разделите мб с суфиксом названий своей страницы -->
-     <header>
-        <div class="container header-content">
-            <a href="index.html" class="logo"> CookFromHome </a>
 
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">CookFromHome</a>
             <nav>
-                 <a href="index.html">Home</a>
-                 <a href="recipes.html">Recipes</a>
-                 <a href="planner.html">Planner</a>
-                 <a href="tips.html">Tips</a>
-                 <a href="pantry.html">Pantry</a>
+                <a href="index.html">Home</a>
+                <a href="recipes.html">Recipes</a>
+                <a href="planner.html">Planner</a>
+                <a href="tips.html">Tips</a>
+                <a href="pantry.html">Pantry</a>
             </nav>
         </div>
-     </header>
+    </header>
 
-     <!-- Вот тут будете писать в основном свою страницу-->
-     <main class="pantry-page">
+    <main class="pantry">
 
-        <section class="pantry-head">
-            <div class="container">
-                <p class="pantry-label">Your Kitchen inventory</p>
-                <h1>Your pantry</h1>
-                <p class="pantry-description">keep tracking your food at home and check it in time</p>
-                
-                <div class="pantry-controls">
-                    <button class="pantry-add-button">+ add product</button>
-                    <input class="pantry-search" type="text">
+        <section class="pantry-top">
+            <div class="container top-content">
+                <h1>Your Pantry</h1>
+                <div class="add-product">
+                    <input type="text" placeholder="rice, milk, tomato...">
+                    <button>ADD</button>
                 </div>
             </div>
         </section>
 
-        <section class="container pantry-dashboard">
+        <section class="container pantry-main">
+            <div class="shelves">
+                <article class="shelf">
 
-            <div class="pantry-inventory">
-                <h2>My products</h2>
-                <div class="pantry-category">
-                    <div>
-                        <h3>&#127830 proteins</h3>
-                        <p>6 products</p>
+                    <div class="shelf-title">
+                        <h4>PROTEIN</h4>
+                        <p>6 items</p>
                     </div>
-                    <p>></p>
-                </div>
 
-                <div class="pantry-category">
-                    <div>
-                        <h3>&#127806 grains</h3>
-                        <p>8 products</p>
+                    <div class="foods">
+                        <p>Chicken</p>
+                        <p>Eggs</p>
+                        <p>Beans</p>
                     </div>
-                    <p>></p>
-                </div>
+                </article>
 
-                <div class="pantry-category">
-                    <div>
-                        <h3>&#129388 vegetables</h3>
-                        <p>7 products</p>
+                <article class="shelf">
+                    <div class="shelf-title">
+                        <h4>GRAINS</h4>
+                        <p>8 items</p>
                     </div>
-                    <p>></p>
-                </div>
 
-                <div class="pantry-category">
-                    <div>
-                        <h3>&#129371 milk products</h3>
-                        <p>5 products</p>
+                    <div class="foods">
+                        <p>Rice</p>
+                        <p>Pasta</p>
+                        <p>Bread</p>
                     </div>
-                    <p>></p>
-                </div>
+                </article>
+
+                <article class="shelf">
+                    <div class="shelf-title">
+                        <h4>VEGETABLES</h4>
+                        <p>7 items</p>
+                    </div>
+
+                    <div class="foods">
+                        <p>Tomatoes</p>
+                        <p>Onions</p>
+                        <p>Carrots</p>
+                    </div>
+                </article>
+
+
+                <article class="shelf">
+                    <div class="shelf-title">
+                        <h4>DAIRY</h4>
+                        <p>5 items</p>
+                    </div>
+
+                    <div class="foods">
+                        <p>Milk</p>
+                        <p>Cheese</p>
+                        <p>Yogurt</p>
+                    </div>
+                </article>
+
             </div>
 
-            <aside class="pantry-expiring">
+            <aside class="note">
 
-                <h2>Need to be used soon</h2>
-    
-                <article class="expire-item">
+                <h2>Before it goes bad</h2>
+                <div class="note-row">
                     <div>
-                        <h3>&#127813 tomatoes</h3>
-                        <p>4 products</p>
+                        <h4>Tomatoes</h4>
+                        <p>4 pieces</p>
                     </div>
-                    <p class="danger">2 day</p>
-                </article>
-    
-                <article class="expire-item">
+                    <p>2 DAYS</p>
+                </div>
+
+                <div class="note-row">
                     <div>
-                        <h3>&#129371 milk</h3>
+                        <h4>Milk</h4>
                         <p>500 ml</p>
                     </div>
-                    <p class="danger">3 day</p>
-                </article>
-    
-                <article class="expire-item">
+                    <p>3 DAYS</p>
+                </div>
+
+                <div class="note-row">
                     <div>
-                        <h3>&#127831 chicken fillet</h3>
+                        <h4>Chicken fillet</h4>
                         <p>500 g</p>
                     </div>
-                    <p class="danger">1 day</p>
-                </article>
-            </aside>
 
+                    <p class="urgent">1 DAY</p>
+                </div>
+
+            </aside>
         </section>
 
-        <section class="container pantry-products">
+        <section class="container pantry-log">
 
-            <h2>Last products</h2>
+            <div class="log">
+                <div class="log-row log-head">
+                    <p>Product</p>
+                    <p>Amount</p>
+                    <p>Status</p>
+                </div>
 
-            <div class="product-list">
-                <article class="product-row">
-                    <p class="product-icon">&#129370</p>
-                    <div>
-                        <h3>eggs</h3>
-                        <p>6 products</p>
-                    </div>
-                    <p class="product-status good">fresh</p>
-                </article>
-    
-                <article class="product-row">
-                    <p class="product-icon">&#127813</p>
-                    <div>
-                        <h3>tomatoes</h3>
-                        <p>4 products</p>
-                    </div>
-                    <p class="product-status warning">need to be used soon</p>
-                </article>
-    
-                <article class="product-row">
-                    <p class="product-icon">&#127834</p>
-                    <div>
-                        <h3>rice</h3>
-                        <p>1 kg</p>
-                    </div>
-                    <p class="product-status good">in stock</p>
-                </article>
+                <div class="log-row">
+                    <h4>Eggs</h4>
+                    <p>6 pieces</p>
+                    <p class="status fresh">Fresh</p>
+                </div>
+
+                <div class="log-row">
+                    <h4>Tomatoes</h4>
+                    <p>4 pieces</p>
+                    <p class="status soon">Use soon</p>
+                </div>
+
+                <div class="log-row">
+                    <h4>Rice</h4>
+                    <p>1 kg</p>
+                    <p class="status stock">In stock</p>
+                </div>
+
             </div>
 
         </section>
 
-     </main>
+        <section class="container pantry-bottom">
+            <a href="recipes.html">Now cook ></a>
+        </section>
 
-     <!-- это будет footer его тоже не надо особо трогать, если хотите новое добавить туда то делайте токо классы разделите мб с суфиксом названий своей страницы-->
-      <footer>
+    </main>
+
+    <footer>
         <div class="container footer-content">
             <h2>CookFromHome</h2>
-            <p>Cook by yourself :3</p>
+            <p> Cook by yourself :3</p>
         </div>
-      </footer>
+    </footer>
+
 </body>
 </html>

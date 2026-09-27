@@ -1,192 +1,249 @@
-.pantry-page {
-    background-color: rgb(245, 241, 232);
+.pantry {
+    background-color: rgb(243, 238, 226);
+    color: rgb(29, 45, 38);
 }
 
-.pantry-head {
+
+/* top */
+
+.pantry-top {
     padding: 70px 0;
-    background-color: rgb(24, 63, 50);
+    background-color: rgb(28, 62, 49);
     color: white;
+    border-bottom: 8px solid rgb(219, 155, 82);
 }
 
-.pantry-label {
-    margin: 0 0 12px;
-    color: rgb(213, 228, 188);
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.pantry-head h1 {
-    margin: 0 0 18px;
-    font-size: 46px;
-}
-
-.pantry-description {
-    margin: 0;
-    font-size: 16px;
-}
-
-.pantry-controls {
-    margin-top: 30px;
+.top-content {
     display: flex;
-    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
 }
 
-.pantry-add-button {
-    padding: 13px 20px;
-    border: none;
-    border-radius: 10px;
-    background-color: rgb(223, 160, 90);
+.top-content h1 {
+    margin: 0;
+    font-size: 60px;
+}
+
+.add-product {
+    display: flex;
+    gap: 8px;
+}
+
+.add-product input {
+    width: 300px;
+    padding: 12px;
+    border: 2px solid white;
+    background-color: rgb(28, 62, 49);
     color: white;
+}
+
+.add-product button {
+    padding: 12px 20px;
+    border: 2px solid rgb(219, 155, 82);
+    background-color: rgb(219, 155, 82);
+    color: rgb(28, 62, 49);
     font-weight: bold;
     cursor: pointer;
 }
 
-.pantry-search {
-    width: 300px;
-    padding: 13px;
-    border: none;
-    border-radius: 8px;
-    outline: none;
-}
 
-/* DASHBOARD */
+/* main */
 
-.pantry-dashboard {
-    padding-top: 50px;
+.pantry-main {
+    padding: 70px 0;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 25px;
-}
-
-.pantry-inventory,
-.pantry-expiring {
-    padding: 28px;
-    background-color: white;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-}
-
-.pantry-inventory h2,
-.pantry-expiring h2 {
-    margin-top: 0;
-    margin-bottom: 25px;
-    color: rgb(23, 56, 46);
-}
-
-/* CATEGORIES */
-
-.pantry-category {
-    padding: 17px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgb(229, 224, 215);
-}
-
-.pantry-category:last-child {
-    border-bottom: none;
-}
-
-.pantry-category h3 {
-    margin: 0;
-    color: rgb(32, 61, 51);
-}
-
-.pantry-category p {
-    margin: 4px 0 0;
-    color: rgb(136, 136, 136);
-    font-size: 14px;
-}
-
-/* EXPIRING */
-
-.expire-item {
-    margin-bottom: 12px;
-    padding: 14px 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(248, 244, 237);
-    border-radius: 10px;
-}
-
-.expire-item h3 {
-    margin: 0;
-    color: rgb(37, 61, 52);
-}
-
-.expire-item p {
-    margin: 4px 0 0;
-    color: rgb(119, 119, 119);
-    font-size: 14px;
-}
-
-.expire-item .danger {
-    color: rgb(199, 71, 71);
+    gap: 50px;
 }
 
 
-/* PRODUCTS */
+/* shelves */
 
-.pantry-products {
-    padding: 45px 0 70px;
-}
-
-.pantry-products h2 {
-    margin-bottom: 20px;
-    color: rgb(23, 56, 46);
-}
-
-.product-list {
-    background-color: white;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-}
-
-.product-row {
-    padding: 16px 20px;
+.shelf {
     display: grid;
-    grid-template-columns: 45px 1fr auto;
-    align-items: center;
-    border-bottom: 1px solid rgb(232, 228, 220);
+    grid-template-columns: 150px 1fr;
+    min-height: 115px;
+    border-bottom: 10px solid rgb(130, 94, 57);
 }
 
-.product-row:last-child {
-    border-bottom: none;
+.shelf-title {
+    padding: 20px 15px 15px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 5px solid rgb(170, 160, 140);
 }
 
-.product-row h3 {
+.shelf-title strong {
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.shelf-title p {
     margin: 0;
-    color: rgb(32, 61, 51);
-}
-
-.product-row p {
-    margin: 3px 0 0;
-    color: rgb(119, 119, 119);
-    font-size: 14px;
-}
-
-.product-icon {
-    font-size: 18px;
-}
-
-/* STATUS */
-
-.product-status {
-    padding: 6px 12px;
-    border-radius: 20px;
+    color: rgb(125, 125, 118);
     font-size: 12px;
+}
+
+.foods {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.foods p {
+    margin: 0;
+    padding: 7px 12px;
+    background-color: rgb(252, 249, 242);
+    border: 1px solid rgb(108, 118, 105);
+    border-radius: 5px;
+    font-size: 14px;
+    
+}
+
+
+/* note */
+
+.note {
+    padding: 30px;
+    align-self: start;
+    background-color: rgb(238, 209, 129);
+    border: 2px solid rgb(52, 76, 61);
+    box-shadow: 6px 8px 0 rgba(0, 0, 0, 0.08);
+    transform: rotate(1deg);
+}
+
+.note h2 {
+    margin-top: 0;
+    font-size: 28px;
+}
+
+.note-row {
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    border-top: 1px dashed rgb(52, 76, 61);
+}
+
+.note-row p {
+    margin: 3px 0 0;
+    font-size: 13px;
+}
+
+.urgent {
+    color: rgb(176, 55, 55);
     font-weight: bold;
 }
 
-.good {
-    background-color: rgb(220, 235, 216);
-    color: rgb(73, 112, 68);
+
+/* table */
+
+.pantry-log {
+    padding-bottom: 60px;
 }
 
-.warning {
-    background-color: rgb(246, 223, 189);
-    color: rgb(156, 102, 40);
+.log {
+    background-color: rgb(251, 248, 241);
+    border: 1px solid rgb(188, 180, 164);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+.log-row {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid rgb(210, 202, 190);
+}
+
+.log-row:last-child {
+    border-bottom: none;
+}
+
+.log-row p {
+    margin: 0;
+    font-size: medium;
+}
+
+.log-head {
+    background-color: rgb(31, 70, 55);
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.status {
+    width: fit-content;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    border: 1px solid rgb(31, 70, 55);
+    border-radius: 5px;
+}
+
+.fresh {
+    background-color: rgb(217, 232, 204);
+}
+
+.soon {
+    background-color: rgb(245, 198, 109);
+}
+
+.stock {
+    background-color: rgb(236, 236, 228);
+}
+
+.pantry-bottom {
+    padding: 20px 0 60px;
+    text-align: right;
+}
+
+
+.pantry-bottom a {
+    color: rgb(28, 62, 49);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+
+    .top-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .top-content h1 {
+        font-size: 42px;
+    }
+
+    .add-product {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .add-product input {
+        width: 100%;
+    }
+
+    .pantry-main {
+        grid-template-columns: 1fr;
+    }
+
+    .shelf {
+        grid-template-columns: 1fr;
+    }
+
+    .shelf-title {
+        border-right: none;
+    }
+
+    .log-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
 }

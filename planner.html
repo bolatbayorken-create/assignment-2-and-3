@@ -3,419 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookFromHome</title>
+    <title>Daily & Weekly Planner</title>
     <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        :root {
+            --brand-sage: #8A9A86;
+            --brand-sage-dark: #6C7C68;
+            --cozy-pink-bg: #F9F5F3;
+            --card-bg: #FFFFFF;
+            --text-main: #333333;
+            --text-muted: #777777;
+            --border-color: #E8E2DE;
+        }
+
+        .planner-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-main);
+        }
+
+        .planner-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .planner-header h1 {
+            color: var(--brand-sage-dark);
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        .task-input-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .task-input-card input[type="text"],
+        .task-input-card select {
+            padding: 10px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            outline: none;
+            font-size: 0.95rem;
+        }
+
+        .task-input-card input[type="text"] {
+            flex: 2;
+            min-width: 200px;
+        }
+
+        .task-input-card select {
+            flex: 1;
+            min-width: 140px;
+            background-color: #fff;
+        }
+
+        .btn-add {
+            background-color: var(--brand-sage);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .btn-add:hover {
+            background-color: var(--brand-sage-dark);
+        }
+
+        .planner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .day-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--cozy-pink-bg);
+            padding-bottom: 10px;
+            margin-bottom: 14px;
+        }
+
+        .day-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--brand-sage-dark);
+        }
+
+        .task-count {
+            font-size: 0.8rem;
+            background-color: var(--cozy-pink-bg);
+            padding: 2px 8px;
+            border-radius: 12px;
+            color: var(--text-muted);
+        }
+
+        .task-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .task-item:last-child {
+            border-bottom: none;
+        }
+
+        .task-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .task-label input[type="checkbox"] {
+            accent-color: var(--brand-sage);
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .task-label input[type="checkbox"]:checked + span {
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+
+        .btn-delete {
+            background: none;
+            border: none;
+            color: #d9534f;
+            cursor: pointer;
+            font-size: 1.1rem;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .btn-delete:hover {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
-    <!-- это короч header его не надо трогать, если хотите новое добавить туда то делайте токо классы разделите мб с суфиксом названий своей страницы -->
-     <header>
-        <div class="container header-content">
-            <a href="index.html" class="logo"> CookFromHome </a>
 
-            <nav>
-                 <a href="index.html">Home</a>
-                 <a href="recipes.html">Recipes</a>
-                 <a href="planner.html">Planner</a>
-                 <a href="tips.html">Tips</a>
-                 <a href="pantry.html">Pantry</a>
-            </nav>
-        </div>
-     </header>
+    <main class="planner-container">
+        <header class="planner-header">
+            <h1>Weekly & Daily Planner 📅</h1>
+            <p>Organize your tasks for the week in one place ✨</p>
+        </header>
 
-     <!-- Вот тут будете писать в основном свою страницу-->
-     <main>
-<style>
-  :root {
-    --brand-sage: #88a070;
-    --brand-sage-dark: #6e8557;
-    --cozy-pink-bg: #fde8f0;
-    --cozy-pink-border: #f2a8c0;
-    --cozy-pink-badge: #f9d2e1;
-    --cozy-pink-text: #8a3b5a;
-    --bg-light: #f4f7f2;
-    --card-bg: #ffffff;
-    --text-dark: #333d29;
-    --border-color: #e2e8f0;
-  }
+        <section class="task-input-card">
+            <input type="text" id="taskText" placeholder="What needs to be done? ✍️" required>
+            <select id="taskDay">
+                <option value="monday">Monday 🌙</option>
+                <option value="tuesday">Tuesday 🌿</option>
+                <option value="wednesday">Wednesday ⚡</option>
+                <option value="thursday">Thursday ☀️</option>
+                <option value="friday">Friday 🎉</option>
+                <option value="weekend">Weekend 🎈</option>
+            </select>
+            <button class="btn-add" onclick="addTask()">Add Task ➕</button>
+        </section>
 
-  .planner-wrapper {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--text-dark);
-    max-width: 1100px;
-    margin: 20px auto;
-    padding: 10px;
-  }
-
-  .planner-header-box {
-    text-align: center;
-    background: var(--cozy-pink-bg);
-    padding: 24px;
-    border-radius: 16px;
-    border: 2px dashed var(--cozy-pink-border);
-    margin-bottom: 24px;
-  }
-
-  .planner-header-box h2 {
-    color: var(--brand-sage-dark);
-    margin: 0 0 8px 0;
-    font-size: 28px;
-  }
-
-  .planner-header-box p {
-    margin: 0;
-    color: #666;
-    font-size: 15px;
-  }
-
-  .planner-grid-layout {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
-  }
-
-  @media (max-width: 768px) {
-    .planner-grid-layout {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .day-node {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-left: 5px solid var(--brand-sage);
-    border-radius: 14px;
-    padding: 18px;
-    margin-bottom: 16px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-    transition: transform 0.2s ease;
-  }
-
-  .day-node:hover {
-    transform: translateY(-2px);
-  }
-
-  .day-node-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-    font-size: 18px;
-    color: var(--brand-sage-dark);
-    border-bottom: 1px dashed var(--border-color);
-    padding-bottom: 8px;
-    margin-bottom: 12px;
-  }
-
-  .badge-kcal {
-    font-size: 13px;
-    background: var(--cozy-pink-badge);
-    color: var(--cozy-pink-text);
-    padding: 4px 12px;
-    border-radius: 15px;
-    font-weight: 600;
-  }
-
-  .meal-item-list {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-  }
-
-  .meal-item-list li {
-    padding: 6px 0;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .meal-tag {
-    font-weight: 600;
-    color: var(--brand-sage-dark);
-    min-width: 80px;
-  }
-
-  .sidebar-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 14px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-  }
-
-  .sidebar-card h3 {
-    margin-top: 0;
-    color: var(--brand-sage-dark);
-    font-size: 18px;
-    border-bottom: 2px solid var(--bg-light);
-    padding-bottom: 8px;
-  }
-
-  .form-field {
-    margin-bottom: 14px;
-  }
-
-  .form-field label {
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 6px;
-  }
-
-  .form-field select, 
-  .form-field input {
-    width: 100%;
-    padding: 9px 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-family: inherit;
-  }
-
-  .btn-action {
-    width: 100%;
-    background-color: var(--brand-sage);
-    color: #ffffff;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-
-  .btn-action:hover {
-    background-color: var(--brand-sage-dark);
-  }
-
-  .add-item-box {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 14px;
-  }
-
-  .add-item-box input {
-    flex: 1;
-    padding: 8px 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    font-size: 14px;
-  }
-
-  .btn-add {
-    background-color: var(--brand-sage);
-    color: white;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-  }
-
-  .checklist-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 8px 0;
-    border-bottom: 1px solid #f8fafc;
-  }
-
-  .checklist-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .checklist-row input[type="checkbox"] {
-    accent-color: var(--brand-sage);
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
-  }
-
-  .checklist-row.completed label {
-    text-decoration: line-through;
-    color: #94a3b8;
-  }
-
-  .btn-delete-item {
-    background: none;
-    border: none;
-    color: #cbd5e1;
-    font-size: 16px;
-    cursor: pointer;
-    padding: 0 4px;
-  }
-
-  .btn-delete-item:hover {
-    color: #ef4444;
-  }
-</style>
-
-<main class="planner-wrapper">
-  <header class="planner-header-box">
-    <h2>План питания на неделю 🥗</h2>
-    <p>Настройте свой рацион и управляйте списком покупок</p>
-  </header>
-
-  <div class="planner-grid-layout">
-    <section id="daysContainer">
-    </section>
-
-    <aside>
-      <div class="sidebar-card">
-        <h3>⚙️ Настройки плана</h3>
-        <div class="form-field">
-          <label for="daysSelect">Период:</label>
-          <select id="daysSelect">
-            <option value="7" selected>7 дней (Вся неделя)</option>
-            <option value="5">5 дней (Будни)</option>
-            <option value="3">3 дня (Выходные)</option>
-          </select>
-        </div>
-
-        <div class="form-field">
-          <label for="targetCalories">Цель (ккал/день):</label>
-          <input type="number" id="targetCalories" value="2000" step="50">
-        </div>
-
-        <button type="button" class="btn-action" onclick="updatePlan()">Обновить план</button>
-      </div>
-
-      <div class="sidebar-card">
-        <h3>🛒 Список покупок</h3>
-        
-        <div class="add-item-box">
-          <input type="text" id="customInput" placeholder="Добавить продукт...">
-          <button type="button" class="btn-add" onclick="addNewProduct()">+ Добавить</button>
-        </div>
-
-        <div id="checklistGroup">
-          <div class="checklist-row">
-            <div class="checklist-left">
-              <input type="checkbox" id="item1" onchange="toggleItem(this)">
-              <label for="item1">Творог (400 г)</label>
+        <section class="planner-grid">
+            
+            <div class="day-card" id="monday">
+                <div class="day-header">
+                    <h3>Monday 🌙</h3>
+                    <span class="task-count">0 tasks</span>
+                </div>
+                <ul class="task-list"></ul>
             </div>
-            <button class="btn-delete-item" onclick="deleteItem(this)">×</button>
-          </div>
 
-          <div class="checklist-row">
-            <div class="checklist-left">
-              <input type="checkbox" id="item2" onchange="toggleItem(this)">
-              <label for="item2">Куриное филе (1 кг)</label>
+            <div class="day-card" id="tuesday">
+                <div class="day-header">
+                    <h3>Tuesday 🌿</h3>
+                    <span class="task-count">0 tasks</span>
+                </div>
+                <ul class="task-list"></ul>
             </div>
-            <button class="btn-delete-item" onclick="deleteItem(this)">×</button>
-          </div>
 
-          <div class="checklist-row">
-            <div class="checklist-left">
-              <input type="checkbox" id="item3" onchange="toggleItem(this)">
-              <label for="item3">Свежая зелень и авокадо</label>
+            <div class="day-card" id="wednesday">
+                <div class="day-header">
+                    <h3>Wednesday ⚡</h3>
+                    <span class="task-count">0 tasks</span>
+                </div>
+                <ul class="task-list"></ul>
             </div>
-            <button class="btn-delete-item" onclick="deleteItem(this)">×</button>
-          </div>
-        </div>
-      </div>
-    </aside>
-  </div>
-</main>
 
-<script>
-  const defaultSchedule = [
-    { day: "Понедельник 🥐", meals: ["Сырники с ягодным джемом 🥞", "Куриная лапша 🍜", "Курица терияки с рисом 🥣"] },
-    { day: "Вторник 🍳", meals: ["Тост с авокадо и яйцом пашот 🥑", "Плов с говядиной 🍲", "Запеченный картофель с зеленью 🥔"] },
-    { day: "Среда 🥣", meals: ["Овсянка с бананом и медом 🍌", "Домашняя самса и чай 🥐", "Паста Болоньезе 🍝"] },
-    { day: "Четверг 🧇", meals: ["Скрамбл с тостами 🍳", "Борщ со сметаной 🍲", "Фаршированные перцы 🫑"] },
-    { day: "Пятница 🍕", meals: ["Блинчики с ягодами 🥞", "Боул с курицей и рисом 🥣", "Запеченный лосось в соусе 🐟"] },
-    { day: "Суббота ☕", meals: ["Яичница с колбасками 🍳", "Чечевичный суп с хлебом 🍞", "Домашняя пицца 🍕"] },
-    { day: "Воскресенье 🍰", meals: ["Творожная запеканка 🥧", "Овощной салат и котлета 🧆", "Гречка с мясным соусом 🥣"] }
-  ];
+            <div class="day-card" id="thursday">
+                <div class="day-header">
+                    <h3>Thursday ☀️</h3>
+                    <span class="task-count">0 tasks</span>
+                </div>
+                <ul class="task-list"></ul>
+            </div>
 
-  function renderDays(daysCount, targetKcal) {
-    const container = document.getElementById('daysContainer');
-    if (!container) return;
-    container.innerHTML = '';
+            <div class="day-card" id="friday">
+                <div class="day-header">
+                    <h3>Friday 🎉</h3>
+                    <span class="task-count">0 tasks</span>
+                </div>
+                <ul class="task-list"></ul>
+            </div>
 
-    const baseKcal = parseInt(targetKcal) || 2000;
+            <div class="day-card" id="weekend">
+                <div class="day-header">
+                    <h3>Weekend 🎈</h3>
+                    <span class="task-count">0 tasks</span>
+                </div>
+                <ul class="task-list"></ul>
+            </div>
 
-    for (let i = 0; i < daysCount; i++) {
-      const item = defaultSchedule[i];
-      const dayKcal = baseKcal + (i % 2 === 0 ? 30 : -20);
+        </section>
+    </main>
 
-      const card = document.createElement('article');
-      card.className = 'day-node';
-      card.innerHTML = `
-        <div class="day-node-header">
-          <span>${item.day}</span>
-          <span class="badge-kcal">${dayKcal} ккал</span>
-        </div>
-        <ul class="meal-item-list">
-          <li><span class="meal-tag">Завтрак:</span> ${item.meals[0]}</li>
-          <li><span class="meal-tag">Обед:</span> ${item.meals[1]}</li>
-          <li><span class="meal-tag">Ужин:</span> ${item.meals[2]}</li>
-        </ul>
-      `;
-      container.appendChild(card);
-    }
-  }
+    <script>
+        function addTask() {
+            const textInput = document.getElementById('taskText');
+            const daySelect = document.getElementById('taskDay');
+            
+            const taskText = textInput.value.trim();
+            const selectedDay = daySelect.value;
 
-  function updatePlan() {
-    const daysSelect = document.getElementById('daysSelect');
-    const targetCalories = document.getElementById('targetCalories');
-    renderDays(parseInt(daysSelect.value), targetCalories.value);
-  }
+            if (taskText === '') return;
 
-  function toggleItem(checkbox) {
-    const row = checkbox.closest('.checklist-row');
-    if (checkbox.checked) {
-      row.classList.add('completed');
-    } else {
-      row.classList.remove('completed');
-    }
-  }
+            const dayCard = document.getElementById(selectedDay);
+            const taskList = dayCard.querySelector('.task-list');
 
-  function addNewProduct() {
-    const input = document.getElementById('customInput');
-    const text = input.value.trim();
-    
-    if (text !== "") {
-      const container = document.getElementById('checklistGroup');
-      const newRow = document.createElement('div');
-      newRow.className = 'checklist-row';
-      
-      const newId = 'item_' + Date.now();
-      newRow.innerHTML = `
-        <div class="checklist-left">
-          <input type="checkbox" id="${newId}" onchange="toggleItem(this)">
-          <label for="${newId}">${text}</label>
-        </div>
-        <button class="btn-delete-item" onclick="deleteItem(this)">×</button>
-      `;
-      
-      container.appendChild(newRow);
-      input.value = "";
-    }
-  }
+            const li = document.createElement('li');
+            li.className = 'task-item';
+            li.innerHTML = `
+                <label class="task-label">
+                    <input type="checkbox" onchange="updateCount('${selectedDay}')">
+                    <span>${taskText}</span>
+                </label>
+                <button class="btn-delete" onclick="removeTask(this, '${selectedDay}')">&times;</button>
+            `;
 
-  function deleteItem(button) {
-    const row = button.closest('.checklist-row');
-    row.remove();
-  }
+            taskList.appendChild(li);
+            textInput.value = '';
+            updateCount(selectedDay);
+        }
 
-  document.addEventListener('DOMContentLoaded', function() {
-    renderDays(7, 2000);
-  });
-</script>
-     </main>
+        function removeTask(btn, dayId) {
+            btn.closest('.task-item').remove();
+            updateCount(dayId);
+        }
 
-     <!-- это будет footer его тоже не надо особо трогать, если хотите новое добавить туда то делайте токо классы разделите мб с суфиксом названий своей страницы-->
-      <footer>
-        <div class="container footer-content">
-            <h2>CookFromHome</h2>
-            <p>Cook by yourself :3</p>
-        </div>
-      </footer>
+        function updateCount(dayId) {
+            const dayCard = document.getElementById(dayId);
+            const count = dayCard.querySelectorAll('.task-list li').length;
+            dayCard.querySelector('.task-count').textContent = `${count} tasks`;
+        }
+    </script>
 </body>
 </html>

@@ -3,294 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planner - CookFromHome</title>
+    <title>Meal Planner - CookFromHome</title>
     <link rel="stylesheet" href="css/style.css">
-    
-    <style>
-        .planner-layout {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 25px;
-        }
-
-        .planner-hero {
-            grid-column: 1 / -1;
-            background-color: #FDF0F0;
-            border: 2px dashed #F5C6CB;
-            border-radius: 16px;
-            padding: 30px 20px;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .planner-hero h1 {
-            color: #5A7052;
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .planner-hero p {
-            color: #777;
-            margin: 0;
-            font-size: 0.95rem;
-        }
-
-        .days-column {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .day-card {
-            background: #FFFFFF;
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        }
-
-        .day-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px dashed #EAEAEA;
-            padding-bottom: 12px;
-            margin-bottom: 12px;
-        }
-
-        .day-header h3 {
-            margin: 0;
-            color: #5A7052;
-            font-size: 1.2rem;
-        }
-
-        .task-badge {
-            background-color: #FCE8E6;
-            color: #D9534F;
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 4px 12px;
-            border-radius: 20px;
-        }
-
-        .task-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .task-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 8px 0;
-        }
-
-        .task-label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            color: #444;
-        }
-
-        .task-label input[type="checkbox"] {
-            accent-color: #8A9A86;
-            width: 16px;
-            height: 16px;
-        }
-
-        .task-label input[type="checkbox"]:checked + span {
-            text-decoration: line-through;
-            color: #aaa;
-        }
-
-        .btn-delete {
-            background: none;
-            border: none;
-            color: #ccc;
-            cursor: pointer;
-            font-size: 1.1rem;
-        }
-
-        .btn-delete:hover {
-            color: #d9534f;
-        }
-
-        .sidebar-column {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .sidebar-card {
-            background: #FFFFFF;
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        }
-
-        .sidebar-card h3 {
-            color: #5A7052;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #555;
-            margin-bottom: 6px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #E5E5E5;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            box-sizing: border-box;
-            outline: none;
-        }
-
-        .btn-submit {
-            width: 100%;
-            background-color: #8A9A86;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .btn-submit:hover {
-            background-color: #6C7C68;
-        }
-
-        @media (max-width: 768px) {
-            .planner-layout {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
-
-    <header class="navbar">
-        <div class="logo">
-            <a href="index.html">CookFromHome</a>
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🍳</span> CookFromHome
+            </a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="recipes.html" class="nav-link">Recipes</a>
+                <a href="planner.html" class="nav-link active">Planner</a>
+                <a href="tips.html" class="nav-link">Tips</a>
+                <a href="pantry.html" class="nav-link">Pantry</a>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="recipes.html">Recipes</a></li>
-                <li><a href="planner.html" class="active">Planner</a></li>
-                <li><a href="tips.html">Tips</a></li>
-                <li><a href="pantry.html">Pantry</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <main class="planner-layout">
-        
-        <section class="planner-hero">
-            <h1>Weekly & Daily Planner 🍱</h1>
-            <p>Customize your routine and manage your task list easily ✨</p>
-        </section>
+    <main class="planner-main">
+        <div class="planner-container">
+            <section class="planner-hero">
+                <h1>Weekly & Daily Planner 🍱</h1>
+                <p>Customize your routine and manage your task list easily ✨</p>
+            </section>
 
-        <section class="days-column">
-            
-            <div class="day-card" id="monday">
-                <div class="day-header">
-                    <h3>Monday 🥐</h3>
-                    <span class="task-badge">0 tasks</span>
+            <div class="planner-content">
+                <div class="days-column">
+                    
+                    <div class="day-card" id="monday">
+                        <div class="day-header">
+                            <h3>Monday 🥐</h3>
+                            <span class="calorie-badge task-badge">0 tasks</span>
+                        </div>
+                        <ul class="task-list"></ul>
+                    </div>
+
+                    <div class="day-card" id="tuesday">
+                        <div class="day-header">
+                            <h3>Tuesday 🥗</h3>
+                            <span class="calorie-badge task-badge">0 tasks</span>
+                        </div>
+                        <ul class="task-list"></ul>
+                    </div>
+
+                    <div class="day-card" id="wednesday">
+                        <div class="day-header">
+                            <h3>Wednesday 🥑</h3>
+                            <span class="calorie-badge task-badge">0 tasks</span>
+                        </div>
+                        <ul class="task-list"></ul>
+                    </div>
+
+                    <div class="day-card" id="thursday">
+                        <div class="day-header">
+                            <h3>Thursday 🍲</h3>
+                            <span class="calorie-badge task-badge">0 tasks</span>
+                        </div>
+                        <ul class="task-list"></ul>
+                    </div>
+
+                    <div class="day-card" id="friday">
+                        <div class="day-header">
+                            <h3>Friday 🍕</h3>
+                            <span class="calorie-badge task-badge">0 tasks</span>
+                        </div>
+                        <ul class="task-list"></ul>
+                    </div>
+
+                    <div class="day-card" id="weekend">
+                        <div class="day-header">
+                            <h3>Weekend 🍰</h3>
+                            <span class="calorie-badge task-badge">0 tasks</span>
+                        </div>
+                        <ul class="task-list"></ul>
+                    </div>
+
                 </div>
-                <ul class="task-list"></ul>
+
+                <aside class="sidebar-column">
+                    <div class="sidebar-card">
+                        <h3>⚙️ Add Task</h3>
+                        
+                        <div class="form-group">
+                            <label for="taskText">Task description:</label>
+                            <input type="text" id="taskText" class="form-control" placeholder="e.g., Buy fresh veggies 🛒">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="taskDay">Select Day:</label>
+                            <select id="taskDay" class="form-control">
+                                <option value="monday">Monday 🥐</option>
+                                <option value="tuesday">Tuesday 🥗</option>
+                                <option value="wednesday">Wednesday 🥑</option>
+                                <option value="thursday">Thursday 🍲</option>
+                                <option value="friday">Friday 🍕</option>
+                                <option value="weekend">Weekend 🍰</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-primary" onclick="addTask()">Add to Plan ➕</button>
+                    </div>
+                </aside>
             </div>
-
-            <div class="day-card" id="tuesday">
-                <div class="day-header">
-                    <h3>Tuesday 🥗</h3>
-                    <span class="task-badge">0 tasks</span>
-                </div>
-                <ul class="task-list"></ul>
-            </div>
-
-            <div class="day-card" id="wednesday">
-                <div class="day-header">
-                    <h3>Wednesday 🥑</h3>
-                    <span class="task-badge">0 tasks</span>
-                </div>
-                <ul class="task-list"></ul>
-            </div>
-
-            <div class="day-card" id="thursday">
-                <div class="day-header">
-                    <h3>Thursday 🍲</h3>
-                    <span class="task-badge">0 tasks</span>
-                </div>
-                <ul class="task-list"></ul>
-            </div>
-
-            <div class="day-card" id="friday">
-                <div class="day-header">
-                    <h3>Friday 🍕</h3>
-                    <span class="task-badge">0 tasks</span>
-                </div>
-                <ul class="task-list"></ul>
-            </div>
-
-            <div class="day-card" id="weekend">
-                <div class="day-header">
-                    <h3>Weekend 🍰</h3>
-                    <span class="task-badge">0 tasks</span>
-                </div>
-                <ul class="task-list"></ul>
-            </div>
-
-        </section>
-
-        <aside class="sidebar-column">
-            
-            <div class="sidebar-card">
-                <h3>⚙️ Add Task</h3>
-                
-                <div class="form-group">
-                    <label>Task description:</label>
-                    <input type="text" id="taskText" class="form-control" placeholder="e.g., Buy fresh veggies 🛒">
-                </div>
-
-                <div class="form-group">
-                    <label>Select Day:</label>
-                    <select id="taskDay" class="form-control">
-                        <option value="monday">Monday 🥐</option>
-                        <option value="tuesday">Tuesday 🥗</option>
-                        <option value="wednesday">Wednesday 🥑</option>
-                        <option value="thursday">Thursday 🍲</option>
-                        <option value="friday">Friday 🍕</option>
-                        <option value="weekend">Weekend 🍰</option>
-                    </select>
-                </div>
-
-                <button class="btn-submit" onclick="addTask()">Add to Plan ➕</button>
-            </div>
-
-        </aside>
-
+        </div>
     </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 CookFromHome. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
         function addTask() {
@@ -306,13 +130,13 @@
             const taskList = dayCard.querySelector('.task-list');
 
             const li = document.createElement('li');
-            li.className = 'task-item';
+            li.style.cssText = "display: flex; align-items: center; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed #eee;";
             li.innerHTML = `
-                <label class="task-label">
+                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
                     <input type="checkbox" onchange="updateCount('${selectedDay}')">
                     <span>${taskText}</span>
                 </label>
-                <button class="btn-delete" onclick="removeTask(this, '${selectedDay}')">&times;</button>
+                <button onclick="removeTask(this, '${selectedDay}')" style="background:none; border:none; color:#d9534f; cursor:pointer; font-size:1.1rem;">&times;</button>
             `;
 
             taskList.appendChild(li);
@@ -321,7 +145,7 @@
         }
 
         function removeTask(btn, dayId) {
-            btn.closest('.task-item').remove();
+            btn.closest('li').remove();
             updateCount(dayId);
         }
 

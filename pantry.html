@@ -7,6 +7,7 @@
     <title>CookFromHome - Pantry</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/pantry.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
@@ -19,7 +20,7 @@
                 <a href="recipes.html">Recipes</a>
                 <a href="planner.html">Planner</a>
                 <a href="tips.html">Tips</a>
-                <a href="pantry.html">Pantry</a>
+                <a href="pantry.html" aria-current="page">Pantry</a>
             </nav>
         </div>
     </header>
@@ -27,9 +28,11 @@
     <main class="pantry">
 
         <section class="pantry-top">
-            <div class="container top-content">
+            <div class="container pantry-top-content">
                 <h1>Your Pantry</h1>
-                <div class="add-product">
+                <div class="pantry-add-product">
+                    <p id="demo-note" class="demo-note">Demo only. Your information is not sent or stored.</p>
+                    <form action="demo-result.html" method="get" aria-describedby="demo-note" class="add-product">
                     <input type="text" placeholder="rice, milk, tomato...">
                     <button>ADD</button>
                 </div>
@@ -38,9 +41,9 @@
 
         <section class="container pantry-main">
             <div class="shelves">
-                <article class="shelf">
+                <article class="pantry-shelf">
 
-                    <div class="shelf-title">
+                    <div class="pantry-shelf-title">
                         <h4>PROTEIN</h4>
                         <p>6 items</p>
                     </div>
@@ -52,8 +55,8 @@
                     </div>
                 </article>
 
-                <article class="shelf">
-                    <div class="shelf-title">
+                <article class="pantry-shelf">
+                    <div class="pantry-shelf-title">
                         <h4>GRAINS</h4>
                         <p>8 items</p>
                     </div>
@@ -65,8 +68,8 @@
                     </div>
                 </article>
 
-                <article class="shelf">
-                    <div class="shelf-title">
+                <article class="pantry-shelf">
+                    <div class="pantry-shelf-title">
                         <h4>VEGETABLES</h4>
                         <p>7 items</p>
                     </div>
@@ -79,8 +82,8 @@
                 </article>
 
 
-                <article class="shelf">
-                    <div class="shelf-title">
+                <article class="pantry-shelf">
+                    <div class="pantry-shelf-title">
                         <h4>DAIRY</h4>
                         <p>5 items</p>
                     </div>
@@ -128,25 +131,25 @@
         <section class="container pantry-log">
 
             <div class="log">
-                <div class="log-row log-head">
+                <div class="pantry-log-row log-head">
                     <p>Product</p>
                     <p>Amount</p>
                     <p>Status</p>
                 </div>
 
-                <div class="log-row">
+                <div class="pantry-log-row">
                     <h4>Eggs</h4>
                     <p>6 pieces</p>
                     <p class="status fresh">Fresh</p>
                 </div>
 
-                <div class="log-row">
+                <div class="pantry-log-row">
                     <h4>Tomatoes</h4>
                     <p>4 pieces</p>
                     <p class="status soon">Use soon</p>
                 </div>
 
-                <div class="log-row">
+                <div class="pantry-log-row">
                     <h4>Rice</h4>
                     <p>1 kg</p>
                     <p class="status stock">In stock</p>
@@ -154,6 +157,22 @@
 
             </div>
 
+        </section>
+
+        <section class="container pantry-faq">
+            <h2>FAQ</h2>
+            <details class="faq-item">
+                    <summary>How do I update product expiration dates?</summary>
+                    <p>Expiration dates updates automatically</p>
+            </details>
+            <details class="faq-item">
+                    <summary>Can I generate recipes directly from my pantry?</summary>
+                    <p>click "Now cook >"</p>
+            </details>
+            <details class="faq-item">
+                    <summary>Cow?</summary>
+                    <img src="https://media.tenor.com/FY-Gu9lp8lUAAAAi/dancing-polish.gif">
+            </details>
         </section>
 
         <section class="container pantry-bottom">

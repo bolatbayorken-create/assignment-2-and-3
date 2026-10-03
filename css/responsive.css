@@ -1,24 +1,61 @@
 /* 
    RESPONSIVE STYLES FOR HOME PAGE
    */
-
-/* планшеты и мобильные устройства (экраны меньше 768px) */
 @media (max-width: 768px) {
     .home-title {
         font-size: 2rem;
     }
 
-    /* сетка преимуществ из 3 колонок в 1 колонку */
     .home-benefits-grid {
         grid-template-columns: 1fr;
     }
 
-    /* чтобы на телефонах строка ввода и кнопка поиска были друг под другом */
     .home-input-group {
         flex-direction: column;
     }
 
     .home-btn {
         width: 100%;
+    }
+}
+
+
+/* Pantry */
+
+@media (max-width: 600px) {
+
+    .pantry-top-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pantry-top-content h1 {
+        font-size: 42px;
+    }
+
+    .pantry-add-product {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .pantry-add-product input {
+        width: 100%;
+    }
+
+    .pantry-main {
+        grid-template-columns: 1fr;
+    }
+
+    .pantry-shelf {
+        grid-template-columns: 1fr;
+    }
+
+    .pantry-shelf-title {
+        border-right: none;
+    }
+
+    .pantry-log-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
     }
 }

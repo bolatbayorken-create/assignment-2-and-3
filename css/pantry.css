@@ -13,24 +13,24 @@
     border-bottom: 8px solid rgb(219, 155, 82);
 }
 
-.top-content {
+.pantry-top-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 40px;
 }
 
-.top-content h1 {
+.pantry-top-content h1 {
     margin: 0;
     font-size: 60px;
 }
 
-.add-product {
+.pantry-add-product {
     display: flex;
     gap: 8px;
 }
 
-.add-product input {
+.pantry-add-product input {
     width: 300px;
     padding: 12px;
     border: 2px solid white;
@@ -60,24 +60,19 @@
 
 /* shelves */
 
-.shelf {
+.pantry-shelf {
     display: grid;
     grid-template-columns: 150px 1fr;
     min-height: 115px;
     border-bottom: 10px solid rgb(130, 94, 57);
 }
 
-.shelf-title {
+.pantry-helf-title {
     padding: 20px 15px 15px 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border-right: 5px solid rgb(170, 160, 140);
-}
-
-.shelf-title strong {
-    font-size: 13px;
-    letter-spacing: 1px;
 }
 
 .shelf-title p {
@@ -152,7 +147,7 @@
     box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.05);
 }
 
-.log-row {
+.pantry-log-row {
     padding: 15px;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
@@ -210,40 +205,28 @@
     text-decoration: none;
 }
 
-@media (max-width: 600px) {
+/* Demo and FAQ*/
+.demo-note {
+    margin: 0 0 8px 0;
+    font-size: 11px;
+    color: rgb(219, 155, 82);
+}
 
-    .top-content {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.pantry-faq {
+    padding-bottom: 40px;
+}
 
-    .top-content h1 {
-        font-size: 42px;
-    }
+.pantry-faq h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
 
-    .add-product {
-        width: 100%;
-        flex-direction: column;
-    }
+.faq-item summary {
+    font-weight: bold;
+}
 
-    .add-product input {
-        width: 100%;
-    }
-
-    .pantry-main {
-        grid-template-columns: 1fr;
-    }
-
-    .shelf {
-        grid-template-columns: 1fr;
-    }
-
-    .shelf-title {
-        border-right: none;
-    }
-
-    .log-row {
-        grid-template-columns: 1fr;
-        gap: 5px;
-    }
+.faq-item {
+    background-color: rgb(251, 248, 241);
+    border: 1px solid rgb(188, 180, 164);
+    padding: 12px 15px;
 }
